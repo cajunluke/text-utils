@@ -1,0 +1,9 @@
+• make new workflow as service
+• add "run shell script" action
+• set shell to /bin/bash
+• set pass input to "as arguments"
+• paste three lines in text area:
+CHARS=`echo "$@" | wc -c`
+
+echo "Found $CHARS characters." | say
+• save under desired name

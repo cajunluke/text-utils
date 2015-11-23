@@ -1,13 +1,5 @@
 #!/usr/bin/env swift
 
-//
-//  main.swift
-//  CLIToolSwift
-//
-//  Created by Benjamin Fortin on 2015-11-21.
-//  Copyright © 2015 Benjamin Fortin. All rights reserved.
-//
-
 import Foundation
 
 func define(word : String) -> String? {

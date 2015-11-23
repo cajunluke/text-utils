@@ -11,11 +11,11 @@ func define(word : String) -> String? {
 
 func main(arguments : [String]) -> Int {
 	guard arguments.count >= 2 else {
-		print("Usage: dict [-a] [-d dictionary] <word to define>")
-		print("\n")
+		print("Usage:", arguments[0], "<word to define>")
+		//print("Usage: dict [-a] [-d dictionary] <word to define>")
 		print("By default, only the active dictionaries are searched.")
-		print("-a searches all dictionaries")
-		print("-d searches the specific dictionary (a path to a .dictionary bundle)")
+		//print("-a searches all dictionaries")
+		//print("-d searches the specific dictionary (a path to a .dictionary bundle)")
 		return -1
 	}
 	

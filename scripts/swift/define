@@ -1,0 +1,41 @@
+#!/usr/bin/env swift
+
+//
+//  main.swift
+//  CLIToolSwift
+//
+//  Created by Benjamin Fortin on 2015-11-21.
+//  Copyright © 2015 Benjamin Fortin. All rights reserved.
+//
+
+import Foundation
+
+func define(word : String) -> String? {
+	let range = CFRange(location:0, length:word.utf8.count)
+	let cfdef = DCSCopyTextDefinition(nil, word, range)
+	
+	return (cfdef?.takeUnretainedValue()) as String?
+}
+
+func main(arguments : [String]) -> Int {
+	guard arguments.count >= 2 else {
+		print("Usage: dict [-a] [-d dictionary] <word to define>")
+		print("\n")
+		print("By default, only the active dictionaries are searched.")
+		print("-a searches all dictionaries")
+		print("-d searches the specific dictionary (a path to a .dictionary bundle)")
+		return -1
+	}
+	
+	let word = arguments[1];
+	
+	guard let def = define(word) else {
+		print("Error finding definition for:", word)
+		return -1
+	}
+	
+	print(def)
+	return 0
+}
+
+main(Process.arguments)
